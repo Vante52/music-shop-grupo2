@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -61,6 +58,12 @@ public class SongController {
         model.addAttribute("song", song);
 
         return "redirect:/songs"; // Redirect to /songs
+    }
+    @GetMapping("/{id}")
+    public String getSongDetails(@PathVariable Long id, Model model) {
+        Song song = songService.findSongById(id);
+        model.addAttribute("song", song);
+        return "songDetails";
     }
 
 
