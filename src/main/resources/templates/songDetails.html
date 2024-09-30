@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Details</title>
+    <link rel="stylesheet" href="songs.css">
+</head>
+<body>
+<h1>Song Details</h1>
+
+<div th:if="${song == null}">
+    <p>No song found.</p>
+</div>
+
+<div th:if="${song != null}" class="song-item">
+    <h2 th:text="${song.title}">Song Title</h2>
+    <p><strong>Artist:</strong> <span th:text="${song.artist}">Artist goes here</span></p>
+    <p><strong>Genre:</strong> <span th:text="${song.genre}">Genre goes here</span></p>
+    <p><strong>Year:</strong> <span th:text="${song.year}">Year goes here</span></p>
+    <p><strong>Album:</strong> <span th:text="${song.album}">Album goes here</span></p>
+    <p><strong>Duration:</strong> <span th:text="${song.duration}">Duration goes here</span></p>
+    <p><strong>Album Cover:</strong> <img th:src="${song.albumCover}" alt="${song.title}"></p>
+</div>
+
+<a href="/songs" class="link-button">Back to Songs List</a>
+</body>
+</html>

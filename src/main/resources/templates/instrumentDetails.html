@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrument Details</title>
+    <link rel="stylesheet" href="instruments.css">
+</head>
+<body>
+<h1>Instrument Details</h1>
+
+<div th:if="${instrument == null}">
+    <p>No instrument found.</p>
+</div>
+
+<div th:if="${instrument != null}">
+    <h2 th:text="${instrument.name}">Instrument Name</h2>
+    <p><strong>Type:</strong> <span th:text="${instrument.type}">Type goes here</span></p>
+    <p><strong>Brand:</strong> <span th:text="${instrument.brand}">Brand goes here</span></p>
+    <p><strong>Price:</strong> <span th:text="${instrument.price}">Price goes here</span></p>
+    <p><strong>Photo:</strong> <img th:src="${instrument.photo}" alt="${instrument.name}"></p>
+</div>
+
+<a href="/instruments">Back to Instruments List</a>
+</body>
+</html>

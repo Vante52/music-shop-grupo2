@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instruments</title>
+
+    <!-- Estilo CSS para los instrumentos (puedes cambiar el nombre según tu archivo CSS) -->
+    <link th:href="@{/styles/instruments.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Instruments</h1>
+
+<a href="/instruments/add" class="link-button">Add a new instrument</a>
+
+<!-- Verificar si la lista de instrumentos está vacía -->
+<div th:if="${#lists.isEmpty(instruments)}">
+    <p>No instruments available. Please add some instruments.</p>
+</div>
+
+<!-- Mostrar lista de instrumentos si no está vacía -->
+<ul th:if="${!#lists.isEmpty(instruments)}">
+    <li th:each="instrument : ${instruments}">
+        <div class="instrument-item">
+            <span th:text="${instrument.name} "></span>
+            <img th:src="${instrument.photo}" th:alt="${instrument.name}" width="100" height="100"/>
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Instrument</title>
+    <link th:href="@{/styles/add-instrument.css}" rel="stylesheet" /> <!-- Asegúrate de enlazar tu CSS -->
+</head>
+<body>
+
+<h2>Create a New Instrument</h2>
+<form class="add-instrument-form" th:action="@{/instruments}" th:object="${createInstrumentDto}" method="post">
+    <label>
+        Name:
+        <input type="text" th:field="*{name}" required />
+    </label>
+    <br>
+    <label>
+        Type:
+        <input type="text" th:field="*{type}" required />
+    </label>
+    <br>
+    <label>
+        Brand:
+        <input type="text" th:field="*{brand}" required />
+    </label>
+    <br>
+    <label>
+        Price:
+        <input type="number" th:field="*{price}" required />
+    </label>
+    <br>
+    <label>
+        Photo URL:
+        <input type="text" th:field="*{photo}" required />
+    </label>
+    <br>
+
+    <button class="add-instrument-button" type="submit">  <!-- Cambiado a la clase de botón adecuada -->
+        Submit
+    </button>
+</form>
+
+<a href="/instruments" class="link-button">Back to Instruments</a>
+
+</body>
+</html>
